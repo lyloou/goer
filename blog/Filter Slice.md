@@ -1,0 +1,2 @@
+- [SliceTricks · golang/go Wiki](https://github.com/golang/go/wiki/SliceTricks)
+- [Can I convert a []T to an []interface{}?](https://golang.org/doc/faq#convert_slice_of_interface)

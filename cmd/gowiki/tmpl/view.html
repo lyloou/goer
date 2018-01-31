@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Title}}</title>
+    <style>
+        h1 {
+            background: antiquewhite;
+            text-align: center;
+            padding: 12px;
+        }
+
+        a {
+            display: inline;
+            text-decoration: none;
+            padding: 8px 16px;
+            font-size: 18px;
+            background: cadetblue;
+            color: azure;
+        }
+
+        a:hover {
+            background: darkcyan;
+        }
+
+        pre {
+            background: aliceblue;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+<h1>{{.Title}}</h1>
+
+<p>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/edit/{{.Title}}">Edit</a>
+</p>
+<h3>
+    Content:
+</h3>
+<pre>
+{{printf "%s" .Body}}
+</pre>
+
+</body>
+</html>
