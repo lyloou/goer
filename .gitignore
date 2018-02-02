@@ -39,7 +39,8 @@
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
-.idea/datasources.xml
+.idea/datasources/
+.idea/datasources*.xml
 .idea/dataSources.ids
 .idea/sqlDataSources.xml
 .idea/dynamic.xml

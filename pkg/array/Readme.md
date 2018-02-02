@@ -1,3 +1,5 @@
+- [SliceTricks · golang/go Wiki](https://github.com/golang/go/wiki/SliceTricks)
+- [Can I convert a []T to an []interface{}?](https://golang.org/doc/faq#convert_slice_of_interface)
 
 ## [Go – taking slices of any type as input parameters](https://ahmet.im/blog/golang-take-slices-of-any-type-as-input-parameter/)
 ```go
