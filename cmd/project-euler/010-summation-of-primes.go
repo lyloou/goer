@@ -1,22 +1,19 @@
 package main
 
 import (
-	"fmt"
 	"github.com/lyloou/goer/cmd/project-euler/common"
+	"fmt"
 )
 
+const maxSum = 2000000
+
 func main() {
-	//t := 6
-	t := 10001
-	c := 0
-	for i := 2; i < 1000000; i++ {
+	sum := 0
+	for i := 2; i < maxSum; i++ {
 		if common.IsPrime(int64(i)) {
-			c ++
-		}
-		if c >= t {
-			fmt.Println(i)
-			break
+			sum += i
 		}
 	}
 
+	fmt.Println("sum:", sum)
 }
