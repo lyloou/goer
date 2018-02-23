@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"math/big"
-	"os"
 	"bufio"
 	"github.com/lyloou/goer/pkg/util"
+	"github.com/lyloou/goer/cmd/project-euler/handler"
 )
 
 // https://projecteuler.net/problem=13
@@ -20,22 +20,19 @@ import (
 // $ go run 013-largesum.go
 
 func main() {
-	f, err := os.Open("013-largesum.data")
+	err := handler.HandleScannerWithFilename("013-largesum.data", func(scanner *bufio.Scanner) error {
+		a := big.NewInt(0)
+		b := big.NewInt(0)
+		for scanner.Scan() {
+			a.SetString(scanner.Text(), 10)
+			b.Add(a, b)
+		}
+		fmt.Println(a)
+		fmt.Println(util.Substr(b.String(), 0, 10))
+		return nil
+	})
+
 	if err != nil {
-		fmt.Println(err)
-		return
+		panic(err)
 	}
-	defer f.Close()
-	scanner := bufio.NewScanner(f)
-	scanner.Split(bufio.ScanLines)
-
-	a := big.NewInt(0)
-	b := big.NewInt(0)
-	for scanner.Scan() {
-		a.SetString(scanner.Text(), 10)
-		b.Add(a, b)
-	}
-	fmt.Println(a)
-	fmt.Println(util.Substr(b.String(), 0, 10))
-
 }
