@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"encoding/json"
+	"strings"
+	"github.com/pkg/errors"
 )
 
 type User struct {
@@ -24,7 +26,7 @@ func main() {
 	}
 
 	a := 5
-	switch  {
+	switch {
 	case a == 3:
 		fmt.Println(">=4")
 		fallthrough
@@ -34,9 +36,21 @@ func main() {
 	default:
 		fmt.Println("default")
 	}
-	aa := `{"products":null,"spec":null}`
-	json.Unmarshal([]byte(aa), &aa)
 
+	type goods struct {
+		Products string
+		Spec     string
+	}
+
+	aa := `{"products":"knife","spec":"small"}`
+	g := goods{}
+	json.Unmarshal([]byte(aa), &g)
+	fmt.Printf("%+v\n", g)
+
+	c := make([]byte, 2)
+	strings.NewReader("ok").Read(c)
+	fmt.Printf("%s", c)
+
+	errors.New("ldk")
 
 }
-
