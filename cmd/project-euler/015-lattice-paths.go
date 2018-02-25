@@ -14,7 +14,7 @@ func main() {
 	}
 	fmt.Println(product)
 
-	countRouters(21, 21)
+	countRouters(20, 20)
 }
 
 // http://blog.csdn.net/liangzhaoyang1/article/details/52939462
@@ -100,27 +100,27 @@ func walkToNext2(p, e point) {
 // https://projecteuler.net/overview=015
 // 迭代的方式
 func countRouters(m, n int) {
-	grid := make([][]int, m)
+	grid := make([][]int, m+1)
 	for k, _ := range grid {
-		grid[k] = make([]int, n)
+		grid[k] = make([]int, n+1)
 	}
 
-	for i := 0; i < m; i++ {
+	for i := 0; i <= m; i++ {
 		grid[i][0] = 1
 	}
 
-	for i := 0; i < m; i++ {
+	for i := 0; i <= m; i++ {
 		grid[0][i] = 1
 	}
 
-	for i := 1; i < m; i++ {
-		for j := 1; j < n; j++ {
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
 			grid[i][j] = grid[i-1][j] + grid[i][j-1]
 		}
 	}
 
-	for i := 0; i < m; i++ {
-		for j := 0; j < n; j++ {
+	for i := 0; i <= m; i++ {
+		for j := 0; j <= n; j++ {
 			fmt.Printf("%12d ", grid[i][j])
 		}
 		fmt.Printf("\n")
