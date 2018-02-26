@@ -17,8 +17,10 @@ func main() {
 }
 
 func getLettersNumber(num string) int {
-	num = strings.Join(strings.Split(num, "-"), "")
-	num = strings.Join(strings.Split(num, " "), "")
+	num = strings.Replace(num, "-", "", -1)
+	num = strings.Replace(num, " ", "", -1)
+	//num = strings.Join(strings.Split(num, "-"), "")
+	//num = strings.Join(strings.Split(num, " "), "")
 	return len(num)
 }
 
@@ -67,7 +69,6 @@ func less20(num int) string {
 	}
 
 }
-
 
 func less100(num int) string {
 	switch {
