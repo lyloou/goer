@@ -25,15 +25,6 @@ func main() {
 	}
 }
 
-func getDivisors(division int64) (divisors [] int64) {
-	var i int64
-	for i = 1; i <= division/2; i++ {
-		if division%i == 0 {
-			divisors = append(divisors, i)
-		}
-	}
-	return
-}
 
 // 1: 1
 // 3: 1,3
