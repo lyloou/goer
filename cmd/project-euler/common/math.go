@@ -12,6 +12,13 @@ func GetDivisors(division int64) (divisors [] int64) {
 	return
 }
 
+func SumDivisors(divisors []int64) (sum int64) {
+	for _, v := range divisors {
+		sum += v
+	}
+	return
+}
+
 func IsPrime(n int64) bool {
 	s := int64(math.Sqrt(float64(n))) + 1
 	for i := int64(2); i < s; i++ {

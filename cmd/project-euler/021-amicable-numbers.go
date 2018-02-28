@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/lyloou/goer/cmd/project-euler/common"
 	"fmt"
+
+	"github.com/lyloou/goer/cmd/project-euler/common"
 )
 
 func main() {
@@ -16,17 +17,10 @@ func main() {
 	fmt.Println(sum)
 }
 
-func sumDivisors(divisors []int64) (sum int64) {
-	for _, v := range divisors {
-		sum += v
-	}
-	return
-}
-
 func isAmicable(num int64) bool {
-	sum := sumDivisors(common.GetDivisors(num))
+	sum := common.SumDivisors(common.GetDivisors(num))
 	if sum == num {
 		return false
 	}
-	return sumDivisors(common.GetDivisors(sum)) == num
+	return common.SumDivisors(common.GetDivisors(sum)) == num
 }
