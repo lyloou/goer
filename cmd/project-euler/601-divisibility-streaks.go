@@ -22,6 +22,7 @@ func main() {
 
 func getFourPower(length int64) int64 {
 	// http://blog.csdn.net/u014609452/article/details/79115753
+	// 4^x = 2^(2x) = (2^x)^2
 	var c int64 = 1 << (uint64(length) << 1)
 	return c
 }

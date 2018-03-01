@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	// 和method1方法的结果一样，但是中间计算的数值太大了，溢出了，所以要用化简后的方法来计算。
+	// 和method1方法的结果一样，但是method1中间计算的数值太大了，溢出了，所以要用化简后的方法来计算。
 	const grid int64 = 20
 	var j, product int64 = 1, 1
 	for i := grid + 1; i <= 2*grid; i++ {

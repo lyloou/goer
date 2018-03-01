@@ -41,3 +41,11 @@ func IsLeap(year int) bool {
 	}
 	return false
 }
+
+func Factorial(num int64) int64 {
+	var result, i int64 = 1, 1
+	for ; i <= num; i++ {
+		result *= i
+	}
+	return result
+}
