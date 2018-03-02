@@ -49,3 +49,18 @@ func Factorial(num int64) int64 {
 	}
 	return result
 }
+
+func Gcd(num1, num2 int64) int64 {
+
+	if num2 == 0 {
+		return num1
+	}
+	return Gcd(num2, num1%num2)
+}
+
+// http://blog.csdn.net/u014609452/article/details/79115753
+func FourPower(length int64) int64 {
+	// 4^x = 2^(2x) = (2^x)^2
+	var c int64 = 1 << (uint64(length) << 1)
+	return c
+}

@@ -3,9 +3,12 @@ package main
 import (
 	"fmt"
 	"math/big"
+
+	"github.com/lyloou/goer/cmd/project-euler/common"
 )
 
 func main() {
+	fmt.Println(common.Factorial(31))
 	fmt.Println(P(3, 14))
 	fmt.Println(P(6, 1000000))
 
