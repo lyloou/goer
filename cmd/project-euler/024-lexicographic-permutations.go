@@ -1,15 +1,82 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-var used []bool
+	"github.com/lyloou/goer/cmd/project-euler/common"
+)
 
 func main() {
-	m024of1()
+	m024of5()
 }
 
+// refer to func m024of4
+// link: https://en.wikipedia.org/wiki/Factorial_number_system#Permutations
+func m024of5() {
+	n := 1000000 - 1
+	factorial := 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
+	factoid := make([]int, 10)
+	for i := 9; i > 0; i-- {
+		factoid[i] = n / factorial
+		n %= factorial
+		factorial /= i
+	}
+	fmt.Println(factoid)
+	arr := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	for i := 9; i >= 0; i-- {
+		a := factoid[i]
+		fmt.Print(arr[a])
+		arr = append(arr[:a], arr[a+1:]...)
+	}
+}
+
+func m024of4() {
+	// [0 1 1 2 1 5 2 6 6 2]
+	result :=
+		2*common.Factorial(9) +
+			6*common.Factorial(8) +
+			6*common.Factorial(7) +
+			2*common.Factorial(6) +
+			5*common.Factorial(5) +
+			1*common.Factorial(4) +
+			2*common.Factorial(3) +
+			1*common.Factorial(2) +
+			1*common.Factorial(1) +
+			0*common.Factorial(0)
+	fmt.Println(result)
+}
+
+// refer to func m024of2
+// link: https://en.wikipedia.org/wiki/Factorial_number_system
+func m024of3() {
+	n := 1000000 - 1
+	factorial := 9 * 8 * 7 * 6 * 5 * 4 * 3 * 2 * 1
+	factoid := make([]int, 10)
+	for i := 9; i > 0; i-- {
+		factoid[i] = n / factorial
+		n %= factorial
+		factorial /= i
+	}
+	fmt.Println(factoid)
+
+	for i := 1; i < 10; i++ {
+		for j := i - 1; j >= 0; j-- {
+			if factoid[j] >= factoid[i] {
+				factoid[j] ++
+			}
+		}
+	}
+
+	for i := 9; i >= 0; i-- {
+		fmt.Print(factoid[i])
+	}
+
+}
+
+var used []bool
 // http://project-euler-answers-in-go.blogspot.com/2011/07/problem-24.html
-// TODO: what's this?
+// Q: what's mean?  A: solve it by factorial
+// https://www.mathblog.dk/project-euler-24-millionth-lexicographic-permutation/
 func m024of2() {
 	used = make([]bool, 10)
 	for i := range used {
