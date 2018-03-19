@@ -17,3 +17,20 @@ func Substr(s string, start, length int) string {
 	}
 	return string(bt[start:end])
 }
+
+func IsContainsInInt64Slice(arr []int64, item int64) bool{
+	for _, v := range arr{
+		if item == v {
+			return true
+		}
+	}
+	return false
+}
+func IsContainsInIntSlice(arr []int, item int) bool{
+	for _, v := range arr{
+		if item == v {
+			return true
+		}
+	}
+	return false
+}
