@@ -20,6 +20,10 @@ func SumDivisors(divisors []int64) (sum int64) {
 }
 
 func IsPrime(n int64) bool {
+	if n < 0 {
+		return false
+	}
+
 	s := int64(math.Sqrt(float64(n))) + 1
 	for i := int64(2); i < s; i++ {
 		if n%i == 0 {
