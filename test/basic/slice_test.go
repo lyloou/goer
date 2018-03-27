@@ -56,3 +56,19 @@ func TestSlice3(t *testing.T) {
 	fmt.Println(a, b)
 
 }
+
+func TestSlice4Append(t *testing.T) {
+	data := []string{"A", "B", "C"}
+	t.Log(data)
+	data = append(data, "D")
+	t.Log(data)
+}
+
+// https://codingair.wordpress.com/2014/07/18/go-appendprepend-item-into-slice/
+// https://code.google.com/p/go-wiki/wiki/SliceTricks
+func TestSlice5Prepend(t *testing.T) {
+	data := []string{"A", "B", "C"}
+	t.Log(data)
+	data = append([]string{"D"}, data...)
+	t.Log(data)
+}
