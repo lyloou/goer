@@ -1,6 +1,10 @@
 package common
 
-import "math"
+import (
+	"math"
+	"strconv"
+	"strings"
+)
 
 func GetDivisors(division int64) (divisors [] int64) {
 	var i int64
@@ -67,4 +71,29 @@ func FourPower(length int64) int64 {
 	// 4^x = 2^(2x) = (2^x)^2
 	var c int64 = 1 << (uint64(length) << 1)
 	return c
+}
+
+func IsPandigital(num string) bool {
+	if len(num) != 9 {
+		return false
+	}
+	split := strings.Split(num, "")
+	m := make(map[string]string, 9)
+	for _, v := range split {
+		m[v] = v
+	}
+	delete(m, "0")
+	return len(m) == 9
+}
+
+func IsPandigital2(num string) bool {
+	if len(num) != 9 {
+		return false
+	}
+	for i := 1; i < 10; i++ {
+		if !strings.Contains(num, strconv.Itoa(i)) {
+			return false
+		}
+	}
+	return true
 }

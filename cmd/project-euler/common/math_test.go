@@ -22,3 +22,15 @@ func TestIsLeap(t *testing.T) {
 		}
 	}
 }
+
+func BenchmarkIsPandigital(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		IsPandigital("932718654")
+	}
+}
+
+func BenchmarkIsPandigital2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		IsPandigital2("932718654")
+	}
+}
