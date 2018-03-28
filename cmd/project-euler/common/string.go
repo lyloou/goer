@@ -29,6 +29,7 @@ func JustShowOnce(str string) bool {
 	return true
 }
 
+// IsPermutation return true when 字符串str1是字符串str2的另一种排列
 func IsPermutation(str1, str2 string) bool {
 	if len(str1) != len(str2) {
 		return false
