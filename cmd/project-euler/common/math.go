@@ -24,7 +24,7 @@ func SumDivisors(divisors []int64) (sum int64) {
 }
 
 func IsPrime(n int64) bool {
-	if n < 0 {
+	if n < 2 {
 		return false
 	}
 
