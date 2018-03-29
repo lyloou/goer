@@ -72,3 +72,17 @@ func TestSlice5Prepend(t *testing.T) {
 	data = append([]string{"D"}, data...)
 	t.Log(data)
 }
+
+// https://yar999.gitbooks.io/gopl-zh/content/ch4/ch4-02.html
+func TestSliceModifyArrayWillChangeSlice(t *testing.T) {
+	months := [13]int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
+	fmt.Printf("%T\n", months)
+	Q2 := months[4:7]
+	summer := months[6:9]
+	months[6] = 87
+	fmt.Println(Q2, summer)
+	Q2[len(Q2)-1] = 88
+	fmt.Println(Q2, summer)
+	summer[0] = 89
+	fmt.Println(Q2, summer)
+}
