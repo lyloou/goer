@@ -1,50 +1,36 @@
 package main
 
 import (
+	"fmt"
+	"math"
 
-"fmt"
-
-"github.com/lyloou/goer/cmd/project-euler/common"
-
+	"github.com/lyloou/goer/cmd/project-euler/common"
 )
 
-
 func main() {
-	fmt.Println( )
-	return
-	var i int64
-//for1:
+	var i, j int64
 	for i = 9; ; i += 2 {
 		if common.IsPrime(i) {
 			continue
 		}
 
-	for2:
-		for j := i - 2; j > 0; j -= 2 {
+	inner:
+		for j = i - 2; j > 0; j -= 2 {
 			if common.IsPrime(j) {
-				if (j-i)%2 != 0 {
-					panic(fmt.Sprintf("1. error  i:%v, j:%v", i, j))
-					return
-				}
-
-				fmt.Println(i, j)
-				m := (j - i) / 2
-
-			for3:
-				for k := 1; ; k ++ {
-					if m == int64(k*k) {
-						fmt.Printf("%v\t= %v + 2*(%v*%v)\n", i, j, k, k)
-						break for2
-					}
-					if m > int64(k*k) {
-						break for3
-					}
+				m := (i - j) / 2
+				mm := math.Sqrt(float64(m))
+				if int64(mm)*int64(mm) == m {
+					fmt.Println(i, j)
+					break inner
 				}
 			}
 		}
 
+		if j <= 0 {
+			fmt.Println("got it:", i)
+			return
+		}
 	}
-
 }
 
 //9 = 7 + 2×12
