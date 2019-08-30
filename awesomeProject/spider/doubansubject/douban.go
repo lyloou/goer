@@ -1,4 +1,4 @@
-package doubanbook
+package doubansubject
 
 import (
 	"fmt"
@@ -10,6 +10,12 @@ import (
 	"github.com/lyloou/goer/awesomeProject/spider/util"
 )
 
+type Book struct {
+	Id    string
+	Title string
+	Pic   string
+	Info  string
+}
 type Douban struct {
 }
 
@@ -37,25 +43,30 @@ func (that *Douban) Process(p *page.Page) {
 
 	// save info to DB
 
-	fmt.Println("info===>", info)
+	fmt.Println(fmt.Sprintf("====>%#v", info))
 }
-func GetDoubanInfo(doc *goquery.Document) interface{} {
-	id := getId(doc)
-	fmt.Println(id)
+
+func GetDoubanInfo(doc *goquery.Document) *Book {
+	book := &Book{}
+	id := getBookId(doc)
+	book.Id = id
 
 	wrapper := doc.Find("body > #wrapper")
 	title := wrapper.Find("h1")
 	titleText := util.GetSelectionText(title)
-	fmt.Println(titleText)
+	book.Title = titleText
 
-	article := wrapper.Find("#article").First()
-	mainPic, _ := article.Find("#mainpic .nbgnbg").Attr("href")
-	fmt.Println(mainPic)
+	article := wrapper.Find(".article").First()
+	mainPic, _ := article.Find("#mainpic .nbg").Attr("href")
+	book.Pic = mainPic
 
-	return nil
+	info := article.Find("#info")
+	book.Info = util.GetSelectionText(info)
+
+	return book
 }
 
-func getId(doc *goquery.Document) string {
+func getBookId(doc *goquery.Document) string {
 	split := strings.Split(doc.Url.String(), "/")
 	return split[len(split)-2]
 }

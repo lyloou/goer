@@ -1,9 +1,9 @@
 package main
 
-import "github.com/lyloou/goer/awesomeProject/spider/doubanbook"
+import "github.com/lyloou/goer/awesomeProject/spider/doubansubject"
 
 func main() {
-	doubanbook.RunSingle()
+	doubansubject.RunSingle()
 	//doubanbook.RunMultiple()
 	//doubanbook.RunMultipleWithDefer()
 }

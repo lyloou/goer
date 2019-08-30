@@ -1,4 +1,4 @@
-package doubanbook
+package doubansubject
 
 import (
 	"fmt"
@@ -10,7 +10,7 @@ import (
 )
 
 func RunSingle() {
-	id := "4820711"
+	id := "4820712"
 	nd := NewDouban()
 	spider.NewSpider(nd, "douban").
 		AddUrl("https://book.douban.com/subject/"+id+"/", "html").
